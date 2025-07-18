@@ -2,7 +2,7 @@ import {ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot} from
 import {Injectable} from '@angular/core';
 import {Auth} from '../services/auth';
 @Injectable()
-export class AuthenticationGuard  {
+export class AuthorizationGuard  {
 
   constructor(private auth :Auth ,private router: Router) {
   }
@@ -10,7 +10,7 @@ export class AuthenticationGuard  {
     if(this.auth.isAuthenticated){
       return true;
     }else{
-      this.router.navigate(['login']);
+      this.router.navigateByUrl('/login');
       return false;
     }
   }

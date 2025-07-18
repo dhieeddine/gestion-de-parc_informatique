@@ -1,0 +1,56 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        <h2>Fournisseur</h2>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <div class="mat-elevation-z1">
+        <table mat-table [dataSource]="dataSource" matSort>
+
+          <!-- Position Column -->
+          <ng-container matColumnDef="numF">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> numF</th>
+            <td mat-cell *matCellDef="let element"> {{element.numF}} </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="nomF">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> nomF </th>
+            <td mat-cell *matCellDef="let element"> {{element.nomF}} </td>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="adresseF">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> adresseF </th>
+            <td mat-cell *matCellDef="let element"> {{element.adresseF}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="codePF">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Code postale </th>
+            <td mat-cell *matCellDef="let element"> {{element.codePF}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="telF">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> telF </th>
+            <td mat-cell *matCellDef="let element"> {{element.telF}} </td>
+          </ng-container>
+
+
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator #paginator
+                       [pageSizeOptions]="[5, 10, 20]"
+                       showFirstLastButtons
+                       aria-label="Select page of fournisseurs">
+        </mat-paginator>
+      </div>
+    </mat-card-content>
+
+  </mat-card>
+</div>

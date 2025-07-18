@@ -1,4 +1,7 @@
 package web.exemple.gestiondeparc_informatique.repository;
 
-public interface PeripheriqueRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import web.exemple.gestiondeparc_informatique.entities.Peripherique;
+
+public interface PeripheriqueRepository extends JpaRepository<Peripherique,Long> {
 }

@@ -1,4 +1,7 @@
 package web.exemple.gestiondeparc_informatique.repository;
 
-public interface InstallerRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import web.exemple.gestiondeparc_informatique.entities.Relier;
+
+public interface InstallerRepository extends JpaRepository<Relier,Long> {
 }
