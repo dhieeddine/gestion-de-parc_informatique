@@ -3,6 +3,9 @@ import {HttpClient} from '@angular/common/http';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
+import {UtilisateurService} from '../services/utilisateur-service';
+import {Auth} from '../services/auth';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-utilisateur',
@@ -13,10 +16,10 @@ import {MatSort} from '@angular/material/sort';
 export class Utilisateur implements OnInit {
   public utilisateur : any;
   public dataSource: any;
-  public displayedColumns: string[] = ['numU', 'nomU','prenomU','droitU'];
+  public displayedColumns: string[] = ['numU', 'nomU','prenomU','droitU','suprimer'];
  @ViewChild(MatPaginator) paginator! : MatPaginator;
  @ViewChild(MatSort) sort!: MatSort;
-  constructor(private http: HttpClient, private cdRef : ChangeDetectorRef) {
+  constructor(private router :Router,public auth:Auth, private http: HttpClient, private cdRef : ChangeDetectorRef, private utilisateurService : UtilisateurService) {
   }
   ngOnInit() {
     this.http.get('http://localhost:8080/utilisateurs').subscribe({
@@ -32,5 +35,23 @@ export class Utilisateur implements OnInit {
       error: err => {console.log(err);}
     })
   }
+  onDeleteUtilisateur(id: number) {
+    if (confirm("Voulez-vous vraiment supprimer ce utilisateur? ?")) {
+      this.utilisateurService.deleteUtilisateur(id).subscribe({
+        next: () => {
+          alert("utilisateur supprimé avec succès.");
+          this.ngOnInit(); // Recharge la liste après suppression
+        },
+        error: err => {
+          console.error(err);
+          alert("Erreur lors de la suppression.");
+        }
+      });
+    }
+  }
 
+  goToNewUtilisateur() {
+    this.router.navigate(['/admin/new-utilisateur']);
+
+  }
 }

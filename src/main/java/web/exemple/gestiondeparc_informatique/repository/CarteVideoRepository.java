@@ -4,5 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import web.exemple.gestiondeparc_informatique.entities.CarteVideo;
 
 public interface CarteVideoRepository extends JpaRepository<CarteVideo,Long> {
-    CarteVideo findByNomCarte(String nomCarte);
+
+    CarteVideo findByNumCarteVideo(Long numCarteVideo);
 }

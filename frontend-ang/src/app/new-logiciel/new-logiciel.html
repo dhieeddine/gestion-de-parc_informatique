@@ -1,0 +1,55 @@
+<div>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Ajouter un logiciel</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="logicielForm" (ngSubmit)="onSubmit()">
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Nom du logiciel</mat-label>
+          <input matInput formControlName="nomL" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Type</mat-label>
+          <input matInput formControlName="typeL" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Licence</mat-label>
+          <input matInput formControlName="licenceL">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Version</mat-label>
+          <input matInput formControlName="versionL">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Éditeur</mat-label>
+          <input matInput formControlName="editeurL">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Numéro de série</mat-label>
+          <input matInput formControlName="numSerieL">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Date d'acquisition</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="dateL">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="logicielForm.invalid">
+          Enregistrer
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+</div>
+

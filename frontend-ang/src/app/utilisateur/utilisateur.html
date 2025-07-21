@@ -30,6 +30,13 @@
             <td mat-cell *matCellDef="let element"> {{element.droitU}} </td>
           </ng-container>
 
+          <ng-container matColumnDef="suprimer">
+            <th mat-header-cell *matHeaderCellDef >suprimer </th>
+            <td mat-cell *matCellDef="let element">
+              <button *ngIf="auth.role === 'admin'" mat-raised-button (click)=" onDeleteUtilisateur(element.numU)" style="background-color: red" > suprimer</button>
+            </td>
+          </ng-container>
+
 
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -43,5 +50,13 @@
       </div>
     </mat-card-content>
 
+  </mat-card>
+  <mat-card *ngIf="auth.role === 'admin'" class="form-block" style="float: right;">
+    <mat-card-header>
+      <mat-card-title>Ajouter un Utilisateur</mat-card-title>
+    </mat-card-header>
+    <mat-card-actions class="mt-4">
+      <button mat-raised-button color="primary" (click)="goToNewUtilisateur()">Ajouter </button>
+    </mat-card-actions>
   </mat-card>
 </div>

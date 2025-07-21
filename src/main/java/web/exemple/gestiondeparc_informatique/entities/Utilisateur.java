@@ -18,5 +18,6 @@ public class Utilisateur {
     private Long numU;
     private String nomU;
     private String prenomU;
+    private String password;
     private String droitU;
 }

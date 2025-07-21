@@ -1,0 +1,18 @@
+<div>
+  <mat-card [formGroup]="emplacementForm" class="emplacementForm">
+    <mat-card-header>
+      <mat-card-title>nouveau Emplacement</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field appearance="outline">
+        <mat-label>nomEmplacement</mat-label>
+        <input matInput formControlName="nomEmplacement">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>service</mat-label>
+        <input matInput formControlName="service">
+      </mat-form-field>
+      <button matButton (click)="SaveEmplacement()">Save</button>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,32 @@
+<div >
+  <mat-card [formGroup]="fournisseurForm" >
+    <mat-card-header>
+      <mat-card-title>nouveau Fournisseur</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="fournisseurForm" >
+
+      <mat-form-field appearance="outline">
+        <mat-label>nom de fournisseur</mat-label>
+        <input matInput formControlName="nomF">
+      </mat-form-field>
+      <mat-form-field  appearance="outline">
+        <mat-label>Address  </mat-label>
+        <input matInput formControlName="adresseF">
+      </mat-form-field>
+      <mat-form-field  appearance="outline">
+        <mat-label>Code Postal </mat-label>
+        <input matInput formControlName="codePF">
+
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>num de tel </mat-label>
+        <input matInput formControlName="telF">
+      </mat-form-field>
+
+
+        <button matButton type="submit"  [disabled]="fournisseurForm.invalid" (click)="SaveFournisseur()">Save</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

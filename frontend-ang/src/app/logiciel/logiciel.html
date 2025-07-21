@@ -1,4 +1,6 @@
 <div class="container">
+
+  <br>
   <mat-card>
     <mat-card-header>
       <mat-card-title>
@@ -47,6 +49,14 @@
             <td mat-cell *matCellDef="let element"> {{element.dateL}} </td>
           </ng-container>
 
+          <ng-container matColumnDef="suprimer">
+            <th mat-header-cell *matHeaderCellDef >suprimer </th>
+            <td mat-cell *matCellDef="let element">
+              <button *ngIf="auth.role === 'admin'" mat-raised-button (click)=" onDeleteLogiciel(element.numL)" style="background-color: red" > suprimer</button>
+            </td>
+          </ng-container>
+
+
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
@@ -61,4 +71,14 @@
     </mat-card-content>
 
   </mat-card>
+  <br><br>
+  <mat-card *ngIf="auth.role === 'admin'" class="form-block" style="float: right;">
+    <mat-card-header>
+      <mat-card-title>Ajouter un Logiciel</mat-card-title>
+    </mat-card-header>
+    <mat-card-actions class="mt-4">
+      <button mat-raised-button color="primary" (click)="goToNewLogiciel()">Ajouter </button>
+    </mat-card-actions>
+  </mat-card>
+
 </div>

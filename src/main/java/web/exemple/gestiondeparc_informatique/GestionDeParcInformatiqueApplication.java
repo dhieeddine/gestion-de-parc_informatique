@@ -27,7 +27,6 @@ public class GestionDeParcInformatiqueApplication {
             LogicielRepository logicielRepository,
             UtilisateurRepository utilisateurRepository,
             MachineRepository machineRepository,
-            PeripheriqueRepository peripheriqueRepository,
             DdurRepository ddurRepository,
             MarqueRepository marqueRepository) {
         return args -> {
@@ -532,13 +531,13 @@ public class GestionDeParcInformatiqueApplication {
             // Machines
             var machine11 = Machine.builder()
                     .processeur("Intel i7")
-                    .fournisseur(f1)
-                    .garantie(g1)
-                    .marque(mar1)
-                    .ecran(ec1)
-                    .disqueDur(dd1)
-                    .carteVideo(cv1)
-                    .emplacement(e1)
+                    .fournisseur(f11)
+                    .garantie(g11)
+                    .marque(mar11)
+                    .ecran(ec11)
+                    .disqueDur(dd11)
+                    .carteVideo(cv11)
+                    .emplacement(e11)
                     .typeMachine("bureau")
                     .dateAchat(LocalDate.parse("2020-10-20"))
                     .ram("4gb")
@@ -546,13 +545,13 @@ public class GestionDeParcInformatiqueApplication {
                     .build();
             var machine12 = Machine.builder()
                     .processeur("AMD Ryzen 5")
-                    .fournisseur(f2)
-                    .garantie(g2)
-                    .marque(mar2)
-                    .ecran(ec2)
-                    .disqueDur(dd2)
-                    .carteVideo(cv2)
-                    .emplacement(e2)
+                    .fournisseur(f12)
+                    .garantie(g12)
+                    .marque(mar12)
+                    .ecran(ec12)
+                    .disqueDur(dd12)
+                    .carteVideo(cv12)
+                    .emplacement(e12)
                     .typeMachine("bureau")
                     .dateAchat(LocalDate.parse("2020-10-20"))
                     .ram("8GB")
@@ -723,116 +722,7 @@ public class GestionDeParcInformatiqueApplication {
             machineRepository.save(machine12);
 
 
-            // Périphériques
-            var p1 = peripheriqueRepository.save(
-                    Peripherique.builder()
-                            .fournisseur(f1)
-                            .nomMateriel("Clavier Logitech")
-                            .typeP("Clavier")
-                            .garantie(g1)
-                            .etatMateriel("Neuf")
-                            .adrIPMateriel("192.168.0.101")
-                            .build());
 
-            var p2 = peripheriqueRepository.save(
-                    Peripherique.builder()
-                            .fournisseur(f2)
-                            .nomMateriel("Souris Microsoft")
-                            .typeP("Souris")
-                            .garantie(g2)
-                            .etatMateriel("Utilisé")
-                            .adrIPMateriel("192.168.0.102")
-                            .build());
-
-            var p3 = peripheriqueRepository.save(
-                    Peripherique.builder()
-                            .fournisseur(f3)
-                            .nomMateriel("Imprimante HP")
-                            .typeP("Imprimante")
-                            .garantie(g3)
-                            .etatMateriel("Neuf")
-                            .adrIPMateriel("192.168.0.103")
-                            .build());
-
-            var p4 = peripheriqueRepository.save(
-                    Peripherique.builder()
-                            .fournisseur(f4)
-                            .nomMateriel("Scanner Canon")
-                            .typeP("Scanner")
-                            .garantie(g4)
-                            .etatMateriel("Reconditionné")
-                            .adrIPMateriel("192.168.0.104")
-                            .build());
-
-            var p5 = peripheriqueRepository.save(
-                    Peripherique.builder()
-                            .fournisseur(f5)
-                            .nomMateriel("Webcam Logitech")
-                            .typeP("Webcam")
-                            .garantie(g5)
-                            .etatMateriel("Neuf")
-                            .adrIPMateriel("192.168.0.105")
-                            .build());
-
-            var p6 = peripheriqueRepository.save(
-                    Peripherique.builder()
-                            .fournisseur(f6)
-                            .nomMateriel("Casque Bose")
-                            .typeP("Casque Audio")
-                            .garantie(g6)
-                            .etatMateriel("Utilisé")
-                            .adrIPMateriel("192.168.0.106")
-                            .build());
-
-            var p7 = peripheriqueRepository.save(
-                    Peripherique.builder()
-                            .fournisseur(f7)
-                            .nomMateriel("Enceinte JBL")
-                            .typeP("Enceinte")
-                            .garantie(g7)
-                            .etatMateriel("Neuf")
-                            .adrIPMateriel("192.168.0.107")
-                            .build());
-
-            var p8 = peripheriqueRepository.save(
-                    Peripherique.builder()
-                            .fournisseur(f8)
-                            .nomMateriel("Dock USB-C")
-                            .typeP("Station d'accueil")
-                            .garantie(g8)
-                            .etatMateriel("Neuf")
-                            .adrIPMateriel("192.168.0.108")
-                            .build());
-
-            var p9 = peripheriqueRepository.save(
-                    Peripherique.builder()
-                            .fournisseur(f9)
-                            .nomMateriel("Disque Dur Externe Seagate")
-                            .typeP("Stockage")
-                            .garantie(g9)
-                            .etatMateriel("Reconditionné")
-                            .adrIPMateriel("192.168.0.109")
-                            .build());
-
-            var p10 = peripheriqueRepository.save(
-                    Peripherique.builder()
-                            .fournisseur(f10)
-                            .nomMateriel("Projecteur Epson")
-                            .typeP("Projecteur")
-                            .garantie(g10)
-                            .etatMateriel("Neuf")
-                            .adrIPMateriel("192.168.0.110")
-                            .build());
-            peripheriqueRepository.save(p1);
-            peripheriqueRepository.save(p2);
-            peripheriqueRepository.save(p3);
-            peripheriqueRepository.save(p4);
-            peripheriqueRepository.save(p5);
-            peripheriqueRepository.save(p6);
-            peripheriqueRepository.save(p7);
-            peripheriqueRepository.save(p8);
-            peripheriqueRepository.save(p9);
-            peripheriqueRepository.save(p10);
 
 
 
@@ -964,81 +854,95 @@ public class GestionDeParcInformatiqueApplication {
             utilisateurRepository.save(Utilisateur.builder()
                     .nomU("admin")
                     .prenomU("admin")
+                    .password("admin")
                     .droitU("admin")
                     .build());
             utilisateurRepository.save(Utilisateur.builder()
                     .nomU("tech1")
                     .prenomU("tech")
+                    .password("admin")
                     .droitU("admin")
                     .build());
             utilisateurRepository.save(Utilisateur.builder()
                     .nomU("user1")
                     .prenomU("user1")
+                    .password("user1")
                     .droitU("user")
                     .build());
             utilisateurRepository.save(Utilisateur.builder()
                     .nomU("alice")
                     .prenomU("Alice")
+                    .password("Alice")
                     .droitU("admin")
                     .build());
 
             utilisateurRepository.save(Utilisateur.builder()
                     .nomU("bob")
                     .prenomU("Robert")
+                    .password("Robert")
                     .droitU("user")
                     .build());
 
             utilisateurRepository.save(Utilisateur.builder()
                     .nomU("carla")
                     .prenomU("Carla")
+                    .password("Carla")
                     .droitU("manager")
                     .build());
 
             utilisateurRepository.save(Utilisateur.builder()
                     .nomU("david")
                     .prenomU("David")
+                    .password("David")
                     .droitU("guest")
                     .build());
 
             utilisateurRepository.save(Utilisateur.builder()
                     .nomU("emily")
                     .prenomU("Emily")
+                    .password("Emily")
                     .droitU("user")
                     .build());
 
             utilisateurRepository.save(Utilisateur.builder()
                     .nomU("frank")
                     .prenomU("Franklin")
+                    .password("Franklin")
                     .droitU("editor")
                     .build());
 
             utilisateurRepository.save(Utilisateur.builder()
                     .nomU("george")
                     .prenomU("Georges")
+                    .password("Georges")
                     .droitU("admin")
                     .build());
 
             utilisateurRepository.save(Utilisateur.builder()
                     .nomU("hannah")
                     .prenomU("Hannah")
+                    .password("Hannah")
                     .droitU("user")
                     .build());
 
             utilisateurRepository.save(Utilisateur.builder()
                     .nomU("ivan")
                     .prenomU("Ivan")
+                    .password("Ivan")
                     .droitU("moderator")
                     .build());
 
             utilisateurRepository.save(Utilisateur.builder()
                     .nomU("julie")
                     .prenomU("Julie")
+                    .password("user")
                     .droitU("manager")
                     .build());
             var u1 = utilisateurRepository.save(
                     Utilisateur.builder()
                             .nomU("Dupont")
                             .prenomU("Jean")
+                            .password("user")
                             .droitU("ADMIN")
                             .build());
 
@@ -1046,6 +950,7 @@ public class GestionDeParcInformatiqueApplication {
                     Utilisateur.builder()
                             .nomU("Martin")
                             .prenomU("Sophie")
+                            .password("user")
                             .droitU("USER")
                             .build());
 
@@ -1053,6 +958,7 @@ public class GestionDeParcInformatiqueApplication {
                     Utilisateur.builder()
                             .nomU("Durand")
                             .prenomU("Pierre")
+                            .password("user")
                             .droitU("USER")
                             .build());
 
@@ -1060,6 +966,7 @@ public class GestionDeParcInformatiqueApplication {
                     Utilisateur.builder()
                             .nomU("Lemoine")
                             .prenomU("Claire")
+                            .password("user")
                             .droitU("MODERATOR")
                             .build());
 
@@ -1067,6 +974,7 @@ public class GestionDeParcInformatiqueApplication {
                     Utilisateur.builder()
                             .nomU("Moreau")
                             .prenomU("Luc")
+                            .password("user")
                             .droitU("ADMIN")
                             .build());
 
@@ -1074,6 +982,7 @@ public class GestionDeParcInformatiqueApplication {
                     Utilisateur.builder()
                             .nomU("Petit")
                             .prenomU("Julie")
+                            .password("user")
                             .droitU("USER")
                             .build());
 
@@ -1081,6 +990,7 @@ public class GestionDeParcInformatiqueApplication {
                     Utilisateur.builder()
                             .nomU("Rousseau")
                             .prenomU("Antoine")
+                            .password("user")
                             .droitU("USER")
                             .build());
 
@@ -1088,6 +998,7 @@ public class GestionDeParcInformatiqueApplication {
                     Utilisateur.builder()
                             .nomU("Garnier")
                             .prenomU("Isabelle")
+                            .password("MODERATOR")
                             .droitU("MODERATOR")
                             .build());
 
@@ -1095,6 +1006,7 @@ public class GestionDeParcInformatiqueApplication {
                     Utilisateur.builder()
                             .nomU("Faure")
                             .prenomU("Nicolas")
+                            .password("user")
                             .droitU("USER")
                             .build());
 
@@ -1102,6 +1014,7 @@ public class GestionDeParcInformatiqueApplication {
                     Utilisateur.builder()
                             .nomU("Bertrand")
                             .prenomU("Céline")
+                            .password("admin")
                             .droitU("ADMIN")
                             .build());
             utilisateurRepository.save(u1);

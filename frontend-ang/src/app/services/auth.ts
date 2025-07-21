@@ -1,41 +1,53 @@
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import {Injectable} from '@angular/core';
+import {Router} from '@angular/router';
+import {UtilisateurService} from './utilisateur-service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class Auth {
-  public users: any = {
-    admin: { password: 'admin', roles: ['admin', 'user'] },
-    user1: { password: 'user', roles: ['user'] },
-  };
-
+  public users: any = {};
   public username: string | undefined;
   public isAuthenticated: boolean = false;
-  public roles: string[] = [];
+  public role: string | undefined;
 
-  constructor(private router: Router) {
-    // ⚠️ Récupérer les données sauvegardées lors d’un refresh
-    const storedUsername = localStorage.getItem('username');
-    const storedRoles = localStorage.getItem('roles');
-    const storedAuth = localStorage.getItem('isAuthenticated');
+  constructor(private router: Router, private utilisateurService: UtilisateurService) {
+    // Charger les utilisateurs depuis la BDD
+    this.utilisateurService.getUtilisateurs().subscribe({
+      next: (data) => {
+        data.forEach(user => {
+          this.users[user.nomU] = {
+            password: user.password,
+            role: user.droitU || 'user'// si `roles` n'est pas dans ton modèle, tu peux ajuster ici
+          };
+        });
 
-    if (storedUsername && storedRoles && storedAuth === 'true') {
-      this.username = storedUsername;
-      this.roles = JSON.parse(storedRoles);
-      this.isAuthenticated = true;
-    }
+        // Restaurer l'état de session après le chargement
+        const storedUsername = localStorage.getItem('username');
+        const storedRoles = localStorage.getItem('role');
+        const storedAuth = localStorage.getItem('isAuthenticated');
+
+        if (storedUsername && storedRoles && storedAuth === 'true') {
+          this.username = storedUsername;
+          this.role = storedRoles;
+          this.isAuthenticated = true;
+        }
+      },
+      error: (err) => {
+        console.error("Erreur lors du chargement des utilisateurs", err);
+      }
+    });
   }
 
   public login(username: string, password: string): boolean {
-    if (this.users[username] && this.users[username]['password'] === password) {
+    if (this.users[username] && this.users[username]['role'] && this.users[username]['password'] === password) {
       this.username = username;
-      this.roles = this.users[username]['roles'];
+      this.role = this.users[username]['role'];
       this.isAuthenticated = true;
 
-      // ✅ Sauvegarder dans le localStorage
       localStorage.setItem('username', this.username);
-      localStorage.setItem('roles', JSON.stringify(this.roles));
+
+      localStorage.setItem('role', this.users[username]['role']);
       localStorage.setItem('isAuthenticated', 'true');
 
       return true;
@@ -45,13 +57,10 @@ export class Auth {
 
   logout() {
     this.isAuthenticated = false;
-    this.roles = [];
+    this.role = undefined;
     this.username = undefined;
 
-    // ❌ Supprimer du localStorage
-    localStorage.removeItem('username');
-    localStorage.removeItem('roles');
-    localStorage.removeItem('isAuthenticated');
+    localStorage.clear();
 
     this.router.navigateByUrl('/login');
   }

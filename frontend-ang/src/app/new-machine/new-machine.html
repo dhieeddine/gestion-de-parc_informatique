@@ -1,0 +1,107 @@
+<mat-card>
+  <mat-card-title>Ajouter une machine</mat-card-title>
+  <mat-card-content>
+    <form  [formGroup]="machineForm" (ngSubmit)="onSubmit()">
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Type de machine</mat-label>
+        <input matInput formControlName="typeMachine">
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Date d'achat</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dateAchat">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Processeur</mat-label>
+        <input matInput formControlName="processeur">
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Stockage</mat-label>
+        <input matInput formControlName="stockage">
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>RAM</mat-label>
+        <input matInput formControlName="ram">
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Adresse IP</mat-label>
+        <input matInput formControlName="adrIP">
+      </mat-form-field>
+
+      <!-- Sélections -->
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Fournisseur</mat-label>
+        <mat-select formControlName="numF">
+          <mat-option *ngFor="let item of fournisseurs" [value]="item.numF">
+            {{ item.nomF }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Marque</mat-label>
+        <mat-select formControlName="numMarque">
+          <mat-option *ngFor="let item of marques" [value]="item.numMarque">
+            {{ item.nomMarque }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Écran</mat-label>
+        <mat-select formControlName="numEcran">
+          <mat-option *ngFor="let item of ecrans" [value]="item.numEcran">
+            {{ item.marque.nomMarque }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Garantie</mat-label>
+        <mat-select formControlName="numGarantie">
+          <mat-option *ngFor="let item of garanties" [value]="item.numGarantie">
+            {{ item.typeGarantie }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Carte Vidéo</mat-label>
+        <mat-select formControlName="numCarteVideo">
+          <mat-option *ngFor="let item of carteVideos" [value]="item.numCarteVideo">
+            {{ item.nomCarte }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Disque Dur</mat-label>
+        <mat-select formControlName="numDD">
+          <mat-option *ngFor="let item of ddurs" [value]="item.numDD">
+            {{ item.typeDD }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Emplacement</mat-label>
+        <mat-select formControlName="numEmplacement">
+          <mat-option *ngFor="let item of emplacements" [value]="item.numEmplacement">
+            {{ item.nomEmplacement }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="machineForm.invalid">
+        Enregistrer
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

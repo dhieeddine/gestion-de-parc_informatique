@@ -1,0 +1,5 @@
+.full-width{
+  margin-block-start: auto;
+  display: block;
+  width: 30%;
+}

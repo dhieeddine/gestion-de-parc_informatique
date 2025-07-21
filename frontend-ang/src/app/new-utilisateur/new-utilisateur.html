@@ -1,0 +1,39 @@
+<div>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Ajouter un utilisateur</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="utilisateurForm" (ngSubmit)="onSubmit()">
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Nom</mat-label>
+          <input matInput formControlName="nomU" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Prénom</mat-label>
+          <input matInput formControlName="prenomU" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Mot de passe</mat-label>
+          <input matInput type="password" formControlName="password" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Droit</mat-label>
+          <mat-select formControlName="droitU" required>
+            <mat-option value="ADMIN">Admin</mat-option>
+            <mat-option value="USER">User</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="utilisateurForm.invalid">
+          Enregistrer
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

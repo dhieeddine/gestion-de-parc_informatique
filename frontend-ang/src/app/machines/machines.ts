@@ -3,6 +3,9 @@ import {HttpClient} from '@angular/common/http';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
+import {MachineService} from '../services/machine-service';
+import {Auth} from '../services/auth';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-machines',
@@ -13,10 +16,10 @@ import {MatSort} from '@angular/material/sort';
 export class Machines implements OnInit {
   public machines : any;
   public dataSource: any;
-  public displayedColumns: string[] = ['numMachine', 'ecran','marque','fournisseur','carteVideo','disqueDur','emplacement','typeMachine','dateAchat','ram','adrIP'];
+  public displayedColumns: string[] = ['numMachine', 'ecran','marque','fournisseur','carteVideo','disqueDur','emplacement','typeMachine','dateAchat','ram','adrIP','suprimer'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  constructor(private http: HttpClient , private cdRef : ChangeDetectorRef) {
+  constructor(private router:Router ,public auth:Auth, private http: HttpClient , private cdRef : ChangeDetectorRef,private machineService:MachineService) {
   }
   ngOnInit() {
     this.http.get('http://localhost:8080/machines').subscribe({
@@ -32,5 +35,25 @@ export class Machines implements OnInit {
       error: err => {console.log(err);}
     })
   }
+  onDeleteMachine(id: number) {
+    if (confirm("Voulez-vous vraiment supprimer cette machine ?")) {
+      this.machineService.deleteMachine(id).subscribe({
+        next: () => {
+          alert("machine supprimé avec succès.");
+          this.ngOnInit(); // Recharge la liste après suppression
+        },
+        error: err => {
+          console.error(err);
+          alert("Erreur lors de la suppression.");
+        }
+      });
+    }
+  }
+
+  goToNewMachine() {
+    this.router.navigate(['/admin/new-machine']);
+
+  }
+
 
 }

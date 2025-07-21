@@ -37,6 +37,12 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header> telF </th>
             <td mat-cell *matCellDef="let element"> {{element.telF}} </td>
           </ng-container>
+          <ng-container matColumnDef="suprimer">
+            <th  mat-header-cell  *matHeaderCellDef >suprimer </th>
+            <td mat-cell *matCellDef="let element">
+              <button *ngIf="auth.role === 'admin'"  mat-raised-button (click)="onDeleteFournisseur(element.numF)" style="background-color: red" > suprimer</button>
+            </td>
+          </ng-container>
 
 
 
@@ -52,5 +58,14 @@
       </div>
     </mat-card-content>
 
+  </mat-card>
+  <br><br>
+  <mat-card *ngIf="auth.role === 'admin'" class="form-block" style="float: right;">
+    <mat-card-header>
+      <mat-card-title>Ajouter un Fournisseur</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <button (click)="newFournisseur()" matButton style="background-color: beige">Ajouter</button>
+    </mat-card-content>
   </mat-card>
 </div>

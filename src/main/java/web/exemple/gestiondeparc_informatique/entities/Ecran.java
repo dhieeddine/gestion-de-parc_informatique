@@ -26,6 +26,6 @@ public class Ecran {
     private Garantie garantie;
 
     @ManyToOne
-    @JoinColumn(name="numFournisseur")
+    @JoinColumn(name="numF")
     private Fournisseur fournisseur;
 }

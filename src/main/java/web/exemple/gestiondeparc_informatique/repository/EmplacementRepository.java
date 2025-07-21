@@ -5,4 +5,5 @@ import web.exemple.gestiondeparc_informatique.entities.Emplacement;
 
 public interface EmplacementRepository extends JpaRepository<Emplacement,Long> {
     Emplacement findByNumEmplacement(Long numEmplacement);
+
 }

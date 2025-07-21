@@ -1,36 +1,35 @@
-<mat-toolbar style="background-color: yellow">
+<mat-toolbar style="background-color: cadetblue">
   <button mat-icon-button (click)="myDrawer.toggle()">
     <mat-icon> menu</mat-icon>
   </button>
-  <img src="assets/Tunisie-Telecom-logo.png" width="40" height="40" style="margin-right: 10px;" alt="">
   <span style="flex: auto"></span>
 
-  <button mat-button routerLink="/admin/machines">Machines</button>
-  <button mat-button routerLink="/admin/logiciel">Logicliel</button>
-  <button mat-button routerLink="/admin/utilisateur">Utilisateurs</button>
-  <button mat-button routerLink="/admin/fournisseur">Fournisseurs</button>
-  <button mat-button routerLink="/admin/emplacement">Emplacements</button>
   <button *ngIf="auth.username" mat-button auth.isAuthenticated>{{auth.username}}</button>
   <button mat-button (click)="logout()" mat-raised-button >Logout</button>
 
 </mat-toolbar>
 
-<mat-drawer-container >
+<mat-drawer-container style="height: max(100%)">
   <mat-drawer #myDrawer opened="true" mode="side" position="start" style="background-color: aliceblue; color: antiquewhite; width:200px;">
     <mat-list>
       <mat-list-item>
-        <button mat-button>
-          <mat-icon>dashboard</mat-icon>
-          ajouter</button>
+          <button mat-button routerLink="/admin/machines"><mat-icon>computer</mat-icon>Machines</button>
       </mat-list-item>
       <mat-list-item>
-        <button mat-button>
-          <mat-icon>delete</mat-icon>suprimer</button>
+        <button mat-button routerLink="/admin/logiciel"><mat-icon>apps</mat-icon>Logicliel</button>
+
       </mat-list-item>
       <mat-list-item>
-        <button mat-button>
-          <mat-icon>autorenew</mat-icon>
-          modifier</button>
+        <button mat-button routerLink="/admin/fournisseur"> <mat-icon>local_shipping</mat-icon> Fournisseurs</button>
+
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/admin/utilisateur"><mat-icon>person_outline</mat-icon> Utilisateurs</button>
+
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/admin/emplacement"><mat-icon>my_location</mat-icon>Emplacements</button>
+
       </mat-list-item>
     </mat-list>
 
