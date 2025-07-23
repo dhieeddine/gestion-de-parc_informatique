@@ -14,14 +14,14 @@ export interface Fournisseur {
   providedIn: 'root'
 })
 export class FournisseurService {
-  private baseUrl = 'http://localhost:8080/fournisseurs';
+  private baseUrl = 'https://localhost:8080/fournisseurs';
   constructor(private http: HttpClient) { }
   public saveFournisseur(data:FormData){
-    return this.http.post('http://localhost:8080/fournisseurs',data);
+    return this.http.post('https://localhost:8080/fournisseurs',data);
   }
 
   deleteFournisseur(id: number) {
-    return this.http.delete(`http://localhost:8080/fournisseurs/${id}`);
+    return this.http.delete(`https://localhost:8080/fournisseurs/${id}`);
   }
 
 

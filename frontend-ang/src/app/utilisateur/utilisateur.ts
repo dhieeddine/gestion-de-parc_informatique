@@ -22,7 +22,7 @@ export class Utilisateur implements OnInit {
   constructor(private router :Router,public auth:Auth, private http: HttpClient, private cdRef : ChangeDetectorRef, private utilisateurService : UtilisateurService) {
   }
   ngOnInit() {
-    this.http.get('http://localhost:8080/utilisateurs').subscribe({
+    this.http.get('https://localhost:8080/utilisateurs').subscribe({
       next: value => {
         this.utilisateur = value;
         this.dataSource= new MatTableDataSource(this.utilisateur);

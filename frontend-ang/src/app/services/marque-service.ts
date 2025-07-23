@@ -13,7 +13,7 @@ export interface Marque {
 
 
 export class MarqueService {
-  private baseUrl = 'http://localhost:8080/marques';
+  private baseUrl = 'https://localhost:8080/marques';
 
   constructor(private http: HttpClient) {}
 

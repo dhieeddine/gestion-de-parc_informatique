@@ -22,7 +22,7 @@ export class Fournisseur implements OnInit {
   constructor(public auth :Auth ,private http: HttpClient, private cdRef: ChangeDetectorRef, private router: Router, private fournisseurService: FournisseurService) {
   }
   ngOnInit() {
-    this.http.get('http://localhost:8080/fournisseurs').subscribe({
+    this.http.get('https://localhost:8080/fournisseurs').subscribe({
       next: value => {
         this.fournisseur = value;
         this.dataSource= new MatTableDataSource(this.fournisseur);

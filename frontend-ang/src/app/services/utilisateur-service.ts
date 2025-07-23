@@ -15,14 +15,14 @@ export interface Utilisateur {
 export class UtilisateurService {
   constructor(private http: HttpClient) { }
   deleteUtilisateur(id: number) {
-    return this.http.delete(`http://localhost:8080/utilisateurs/${id}`);
+    return this.http.delete(`https://localhost:8080/utilisateurs/${id}`);
   }
   getUtilisateurs(): Observable<any[]> {
-    return this.http.get<any[]>(`http://localhost:8080/utilisateurs`);
+    return this.http.get<any[]>(`https://localhost:8080/utilisateurs`);
   }
 
   public saveUtilisateur(data:FormData){
-    return this.http.post('http://localhost:8080/utilisateurs',data);
+    return this.http.post('https://localhost:8080/utilisateurs',data);
   }
 
 

@@ -19,10 +19,10 @@ export class LogicielService {
    constructor(private http: HttpClient) { }
 
   deleteLogiciel(id: number) {
-    return this.http.delete(`http://localhost:8080/logiciels/${id}`);
+    return this.http.delete(`https://localhost:8080/logiciels/${id}`);
   }
   public saveLogiciel(data:FormData){
-    return this.http.post('http://localhost:8080/logiciels',data);
+    return this.http.post('https://localhost:8080/logiciels',data);
   }
 
 

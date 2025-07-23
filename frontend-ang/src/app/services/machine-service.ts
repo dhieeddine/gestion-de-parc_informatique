@@ -11,7 +11,7 @@ export class MachineService {
   }
   saveMachine(data:FormData)
   {
-    return this.http.post('http://localhost:8080/machines',data);
+    return this.http.post('https://localhost:8080/machines',data);
 
 
   }

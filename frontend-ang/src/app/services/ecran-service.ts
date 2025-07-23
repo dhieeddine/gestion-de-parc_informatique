@@ -13,7 +13,7 @@ export interface Ecran {
   providedIn: 'root'
 })
 export class EcranService {
-  private baseUrl = 'http://localhost:8080/ecrans';
+  private baseUrl = 'https://localhost:8080/ecrans';
 
   constructor(private http: HttpClient) {}
 

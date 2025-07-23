@@ -22,7 +22,7 @@ export class Emplacement implements OnInit {
   constructor(private http: HttpClient, private cdRef : ChangeDetectorRef,  private router: Router ,private emplacementService: EmplacementService, public auth:Auth) {
   }
   ngOnInit() {
-    this.http.get('http://localhost:8080/emplacements').subscribe({
+    this.http.get('https://localhost:8080/emplacements').subscribe({
       next: value => {
         this.emplacement = value;
         this.dataSource= new MatTableDataSource(this.emplacement);

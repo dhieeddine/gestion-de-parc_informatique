@@ -23,7 +23,7 @@ export class Logiciel implements OnInit {
   }
 
   ngOnInit() {
-    this.http.get('http://localhost:8080/logiciels').subscribe({
+    this.http.get('https://localhost:8080/logiciels').subscribe({
       next: value => {
         this.logiciel = value;
         this.dataSource = new MatTableDataSource(this.logiciel);

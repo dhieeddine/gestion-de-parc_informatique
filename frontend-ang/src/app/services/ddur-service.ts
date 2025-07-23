@@ -13,7 +13,7 @@ export interface Ddur {
   providedIn: 'root'
 })
 export class DdurService {
-  private baseUrl = 'http://localhost:8080/ddurs';
+  private baseUrl = 'https://localhost:8080/ddurs';
 
   constructor(private http: HttpClient) {}
 

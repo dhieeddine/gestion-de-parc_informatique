@@ -12,7 +12,7 @@ export interface CarteVideo {
   providedIn: 'root'
 })
 export class CarteVideoService {
-  private baseUrl = 'http://localhost:8080/carteVideos';
+  private baseUrl = 'https://localhost:8080/carteVideos';
 
   constructor(private http: HttpClient) {}
 
