@@ -1,0 +1,9 @@
+.backround{
+  margin: 0;
+  padding: 0;
+  background-image: url('/assets/Tunisie-Telecom-logo.png'); /* chemin vers ton image */
+  background-size: cover;        /* adapte l'image à l'écran */
+  background-repeat: no-repeat;  /* pas de répétition */
+  background-position: center;   /* centre l'image */
+  height: 100vh;
+}

@@ -25,7 +25,7 @@ export class Login implements OnInit {
     let password = this.logiForm.value.password;
     let authService = this.auth.login(username, password);
     if(authService){
-      this.router.navigateByUrl('/admin');
+      this.router.navigateByUrl('/admin/acceuil');
 
     }
 

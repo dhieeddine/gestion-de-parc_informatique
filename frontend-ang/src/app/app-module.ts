@@ -33,6 +33,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import {NewUtilisateur} from './new-utilisateur/new-utilisateur';
 import {NewMachine} from './new-machine/new-machine';
+import { Acceuil } from './acceuil/acceuil';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import {NewMachine} from './new-machine/new-machine';
     NewLogiciel,
     NewUtilisateur,
     NewMachine,
+    Acceuil,
   ],
   imports: [
     BrowserModule,

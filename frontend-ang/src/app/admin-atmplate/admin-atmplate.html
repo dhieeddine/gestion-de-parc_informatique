@@ -3,7 +3,7 @@
     <mat-icon> menu</mat-icon>
   </button>
   <span style="flex: auto"></span>
-
+  <button mat-button routerLink="/admin/acceuil"><mat-icon>home</mat-icon> acceuil</button>
   <button *ngIf="auth.username" mat-button auth.isAuthenticated>{{auth.username}}</button>
   <button mat-button (click)="logout()" mat-raised-button >Logout</button>
 
@@ -34,9 +34,9 @@
     </mat-list>
 
   </mat-drawer>
-  <mat-drawer-content>
-    <div style="min-height: 600px">
-      <router-outlet></router-outlet>
+  <mat-drawer-content >
+    <div   style="min-height: 600px">
+      <router-outlet class="backround"></router-outlet>
     </div>
   </mat-drawer-content>
 
