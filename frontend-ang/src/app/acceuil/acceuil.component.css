@@ -1,0 +1,8 @@
+/* home.component.css */
+.template-card {
+  margin: 20px auto;
+  padding: 20px;
+  width: 60%;
+  border-radius: 12px;
+  background: #fafafa;
+}

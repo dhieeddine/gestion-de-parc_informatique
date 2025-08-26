@@ -22,7 +22,7 @@ export class Machines implements OnInit {
   constructor(private router:Router ,public auth:Auth, private http: HttpClient , private cdRef : ChangeDetectorRef,private machineService:MachineService) {
   }
   ngOnInit() {
-    this.http.get('http://localhost:8080/machines').subscribe({
+    this.http.get('https://localhost:8443/machines').subscribe({
       next: value => {
         this.machines = value;
         this.dataSource= new MatTableDataSource(this.machines);

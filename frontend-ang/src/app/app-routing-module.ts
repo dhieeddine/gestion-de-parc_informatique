@@ -13,7 +13,7 @@ import {NewFournisseur} from './new-fournisseur/new-fournisseur';
 import {NewLogiciel} from './new-logiciel/new-logiciel';
 import {NewUtilisateur} from './new-utilisateur/new-utilisateur';
 import {NewMachine} from './new-machine/new-machine';
-import {Acceuil} from './acceuil/acceuil';
+import {AcceuilComponent} from './acceuil/acceuil.component';
 
 const routes: Routes = [
   { path: '', component: Login },
@@ -31,7 +31,7 @@ const routes: Routes = [
       { path: 'new-logiciel', component: NewLogiciel },
       { path: 'new-utilisateur', component: NewUtilisateur },
       { path: 'new-machine', component: NewMachine },
-      { path: 'acceuil', component: Acceuil },
+      { path: 'acceuil', component: AcceuilComponent },
 
 
 

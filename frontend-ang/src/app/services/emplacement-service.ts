@@ -13,14 +13,14 @@ export interface Emplacement{
 export class EmplacementService {
   constructor(private http: HttpClient) { }
   public saveEmplacement(data:FormData){
-    return this.http.post('http://localhost:8080/emplacements',data);
+    return this.http.post('https://localhost:8443/emplacements',data);
   }
   deleteEmplacement(id: number) {
-    return this.http.delete(`http://localhost:8080/emplacements/${id}`);
+    return this.http.delete(`https://localhost:8443/emplacements/${id}`);
   }
 
   getAll(): Observable<Emplacement[]> {
-    return this.http.get<Emplacement[]>('http://localhost:8080/emplacements');
+    return this.http.get<Emplacement[]>('https://localhost:8443/emplacements');
   }
 
 

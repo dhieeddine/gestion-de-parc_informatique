@@ -12,7 +12,7 @@ export interface Garantie {
   providedIn: 'root'
 })
 export class GarantieService {
-  private baseUrl = 'http://localhost:8080/garanties';
+  private baseUrl = 'https://localhost:8443/garanties';
 
   constructor(private http: HttpClient) {}
 
