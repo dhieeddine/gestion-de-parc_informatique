@@ -1,0 +1,18 @@
+# Image Node pour dev
+FROM node:20
+
+# Créer le dossier de travail
+WORKDIR /app
+
+# Copier package.json et installer les dépendances
+COPY package*.json ./
+RUN npm install
+
+# Copier le reste du code
+COPY . .
+
+# Exposer le port Angular (par défaut 4200)
+EXPOSE 4200
+
+# Lancer Angular en mode dev
+CMD ["npm", "run", "start", "--", "--host", "0.0.0.0"]
