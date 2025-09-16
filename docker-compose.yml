@@ -5,6 +5,7 @@ services:
       dockerfile: Dockerfile
     ports:
        - "8443:8443"
+       - ${PORT}
 
   frontend:
     build:
@@ -12,4 +13,6 @@ services:
       dockerfile: Dockerfile.frontend
     ports:
       - "4200:4200"
+      - ${PORT}
+
 
