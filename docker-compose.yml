@@ -7,6 +7,17 @@ services:
        - "8443:8443"
        - ${PORT}
 
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: gestion
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: jxHTbb8O6nOFnBxbteIoEMIfEMpCEcOP
+    ports:
+      - "5432:5432"
+
+
   frontend:
     build:
       context: ./frontend-ang
