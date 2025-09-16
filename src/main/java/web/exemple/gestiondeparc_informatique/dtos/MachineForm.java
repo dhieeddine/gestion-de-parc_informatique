@@ -3,7 +3,7 @@ package web.exemple.gestiondeparc_informatique.dtos;
 import lombok.*;
 
 import java.time.LocalDate;
-@NoArgsConstructor @AllArgsConstructor @Getter
+@AllArgsConstructor @Getter
 @Setter @ToString @Builder
 public class MachineForm {
     private String typeMachine;
