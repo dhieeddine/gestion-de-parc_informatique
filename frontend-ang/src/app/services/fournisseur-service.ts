@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import { environment } from '../../environments/environment'; // Import the environment
 
 export interface Fournisseur {
   numF : number;
@@ -14,14 +15,15 @@ export interface Fournisseur {
   providedIn: 'root'
 })
 export class FournisseurService {
-  private baseUrl = 'https://localhost:8443/fournisseurs';
+  private baseUrl = environment.apiBaseUrl + '/fournisseurs';
+
   constructor(private http: HttpClient) { }
   public saveFournisseur(data:FormData){
-    return this.http.post('https://localhost:8443/fournisseurs',data);
+    return this.http.post(this.baseUrl,data);
   }
 
   deleteFournisseur(id: number) {
-    return this.http.delete(`https://localhost:8443/fournisseurs/${id}`);
+    return this.http.delete(`${this.baseUrl}/${id}`);
   }
 
 

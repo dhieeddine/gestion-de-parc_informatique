@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Marque} from './marque-service';
+import { environment } from '../../environments/environment';
 
 export interface Ecran {
   numEcran: number;
@@ -13,7 +14,7 @@ export interface Ecran {
   providedIn: 'root'
 })
 export class EcranService {
-  private baseUrl = 'https://localhost:8443/ecrans';
+private baseUrl = environment.apiBaseUrl + '/ecrans;
 
   constructor(private http: HttpClient) {}
 

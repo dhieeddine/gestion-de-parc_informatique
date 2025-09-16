@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import { environment } from '../../environments/environment';
 
 export interface Garantie {
   numGarantie: number;
@@ -12,7 +13,7 @@ export interface Garantie {
   providedIn: 'root'
 })
 export class GarantieService {
-  private baseUrl = 'https://localhost:8443/garanties';
+  private baseUrl = environment.apiBaseUrl + '/garanties';
 
   constructor(private http: HttpClient) {}
 

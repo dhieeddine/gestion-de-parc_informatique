@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import { environment } from '../../environments/environment';
 
 export interface Marque {
   numMarque: number;
@@ -13,7 +14,7 @@ export interface Marque {
 
 
 export class MarqueService {
-  private baseUrl = 'https://localhost:8443/marques';
+  private baseUrl = environment.apiBaseUrl + '/marques';
 
   constructor(private http: HttpClient) {}
 

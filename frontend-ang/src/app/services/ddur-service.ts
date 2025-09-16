@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import { environment } from '../../environments/environment';
 
 export interface Ddur {
   numDD: number;
@@ -13,7 +14,7 @@ export interface Ddur {
   providedIn: 'root'
 })
 export class DdurService {
-  private baseUrl = 'https://localhost:8443/ddurs';
+  private baseUrl = environment.apiBaseUrl + '/ddurs';
 
   constructor(private http: HttpClient) {}
 

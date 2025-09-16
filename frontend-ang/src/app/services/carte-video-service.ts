@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import { environment } from '../../environments/environment';
 
 export interface CarteVideo {
   numCarteVideo: number;
@@ -12,7 +13,8 @@ export interface CarteVideo {
   providedIn: 'root'
 })
 export class CarteVideoService {
-  private baseUrl = 'https://localhost:8443/carteVideos';
+  private baseUrl = environment.apiBaseUrl + '/carteVideos';
+
 
   constructor(private http: HttpClient) {}
 
