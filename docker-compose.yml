@@ -1,13 +1,21 @@
+version: '3.8'
 services:
   backend:
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-       - "8443:8443"
-       - ${PORT}
+      - "8443:8443"
+      # Uncomment below if you want to support Render or dynamic port mapping
+      - "${PORT}:${PORT}"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/gestion
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=jxHTbb8O6nOFnBxbteIoEMIfEMpCEcOP
+      # Add other env vars as needed
+    depends_on:
+      - db
 
-services:
   db:
     image: postgres:17
     environment:
@@ -16,7 +24,8 @@ services:
       POSTGRES_PASSWORD: jxHTbb8O6nOFnBxbteIoEMIfEMpCEcOP
     ports:
       - "5432:5432"
-
+    volumes:
+      - db_data:/var/lib/postgresql/data
 
   frontend:
     build:
@@ -24,6 +33,7 @@ services:
       dockerfile: Dockerfile.frontend
     ports:
       - "4200:4200"
-      - ${PORT}
+      # Don't map ${PORT} for frontend unless required
 
-
+volumes:
+  db_data:
