@@ -16,7 +16,7 @@ public class GestionDeParcInformatiqueApplication {
         SpringApplication.run(GestionDeParcInformatiqueApplication.class, args);
     }
 
-
+/*
     @Bean
     CommandLineRunner commandLineRunner(
             EcranRepository ecranRepository,
@@ -31,7 +31,7 @@ public class GestionDeParcInformatiqueApplication {
             MarqueRepository marqueRepository) {
         return args -> {
             // Fournisseurs
-            var f11 = fournisseurRepository.save(
+                    var f11 = fournisseurRepository.save(
                     Fournisseur.builder()
                             .nomF("Dell France")
                             .adresseF("Paris")
@@ -1030,7 +1030,7 @@ public class GestionDeParcInformatiqueApplication {
 
 
         };
-    }
+    }*/
 
 
 
